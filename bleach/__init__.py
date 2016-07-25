@@ -9,9 +9,13 @@ except ImportError:
         def emit(self, record):
             pass
 import re
+from distutils.version import LooseVersion
 
 import html5lib
-from html5lib.sanitizer import HTMLSanitizer
+if(LooseVersion(str(html5lib.__version__)) < LooseVersion('0.99999999')):
+    from html5lib.sanitizer import HTMLSanitizer
+ else:
+     from html5lib.filters.sanitizer import HTMLSanitizer
 from html5lib.serializer.htmlserializer import HTMLSerializer
 
 from . import callbacks as linkify_callbacks
