@@ -12,10 +12,10 @@ import re
 from distutils.version import LooseVersion
 
 import html5lib
-if(LooseVersion(str(html5lib.__version__)) < LooseVersion('0.99999999')):
+if LooseVersion(str(html5lib.__version__)) < LooseVersion('0.99999999'):
     from html5lib.sanitizer import HTMLSanitizer
- else:
-     from html5lib.filters.sanitizer import HTMLSanitizer
+else:
+    from html5lib.filters.sanitizer import HTMLSanitizer
 from html5lib.serializer.htmlserializer import HTMLSerializer
 
 from . import callbacks as linkify_callbacks
